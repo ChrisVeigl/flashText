@@ -24,6 +24,7 @@ Turn a plain text file into an MP4 video of centered text slides, with optional 
 10. [Troubleshooting](#10-troubleshooting)
 11. [Limitations](#11-limitations)
 12. [Extending the script](#12-extending-the-script)
+13. [Other tools](#13-other-tools)
 
 ---
 
@@ -726,3 +727,11 @@ Commands that only change a setting (like `<fg>`, `<align>` or `<fade>`) return 
 
 Ideas that fit this structure: other transition effects (wipes, slides), `<audio>` for a sound track, or per-slide font size.
 
+---
+
+## 13. Other tools
+
+The `otherTools/` folder contains two standalone Bash scripts:
+
+- **`join.sh`** — joins MP4 files in the current directory into `joined.mp4` without re-encoding. Run it from the directory containing the clips: `bash /path/to/otherTools/join.sh`. The clips should have compatible encoding settings for stream-copy concatenation.
+- **`ticker.sh`** — creates an MP4 with text scrolling horizontally across the screen. It takes foreground color, background color, speed in pixels per second and a text file, with an optional output filename: `otherTools/ticker.sh white black 300 headlines.txt ticker.mp4`. It requires FFmpeg, Python 3, Pillow and a font file; video dimensions, frame rate, font and text size can be set with the `WIDTH`, `HEIGHT`, `FPS`, `FONT` and `SIZE` environment variables. See the usage comments in the script for details.
